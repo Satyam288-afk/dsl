@@ -1,0 +1,19 @@
+def linear_search(arr, target):
+    operations = 0
+    for i in range(len(arr)):
+        operations += 1
+        if arr[i] == target:
+            return i, operations  
+    return -1, operations
+
+input_str = input("Enter the elements of the array separated by spaces: ")
+arr = list(map(int, input_str.split()))
+
+target = int(input("Enter the number to search for: "))
+index, operations = linear_search(arr, target)
+
+if index != -1:
+    print(f"Number {target} found at index {index} after {operations} operations.")
+else:
+    print(f"Number {target} not found after {operations} operations.")                                                                                       
+
