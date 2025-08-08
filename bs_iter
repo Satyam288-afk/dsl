@@ -1,0 +1,41 @@
+import time
+
+def binary_search_iterative(arr, target):
+    low = 0
+    high = len(arr) - 1
+    step = 1
+
+    while low <= high:
+        print(f"Step {step}: Searching in {arr[low:high+1]}")
+        mid = (low + high) // 2
+
+        if arr[mid] == target:
+            print(f"Found {target} at index {mid}")
+            return mid
+        elif arr[mid] < target:
+            low = mid + 1
+        else:
+            high = mid - 1
+
+        step += 1
+
+    print(f"{target} not found in array.")
+    return -1
+
+
+
+arr_input = input("Enter sorted array elements (space-separated): ")
+arr = list(map(int, arr_input.strip().split()))
+
+target = int(input("Enter the target value to search: "))
+
+
+print("\n=== Iterative Binary Search ===")
+start_time = time.time()
+
+binary_search_iterative(arr, target)
+
+end_time = time.time()
+elapsed_time = end_time - start_time
+
+print(f"\nTime taken: {elapsed_time:.6f} seconds")
